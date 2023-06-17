@@ -1,26 +1,29 @@
-import {View, Text} from 'react-native';
-import React from 'react';
+import {View, Text, Image} from 'react-native';
+import React, {useEffect} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import {Pace, WindupChildren} from 'windups';
 
 const Splash = () => {
-  return (
-    <View>
-      <Text>Splash Screen</Text>
-    </View>
-  );
-};
+  const navigation = useNavigation();
 
-const Splash2 = () => {
-  return (
-    <View>
-      <Text>Splash Screen 2</Text>
-    </View>
-  );
-};
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.replace('OnboardingScreen');
+    }, 3000); // Replace with your desired duration
 
-const Splash3 = () => {
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <View>
-      <Text>Splash Screen 3</Text>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <WindupChildren>
+        <Pace getPace={() => 60}>
+          <Image
+            source={require('./splash_image.png')}
+            style={{width: 200, height: 200}}
+          />
+        </Pace>
+      </WindupChildren>
     </View>
   );
 };
