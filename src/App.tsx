@@ -2,38 +2,31 @@ import * as React from 'react';
 import {View, Text, Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {useEffect, useState} from 'react';
+import AuthService from './services/AuthService';
+import Login from './screens/Login';
 
-function HomeScreen({navigation}) {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Home Screen woi agha</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      />
-    </View>
-  );
-}
+const App: React.FC = () => {
+  // const [loading, setLoading] = useState(true);
+  // const [userToken, setUserToken] = useState('');
 
-function DetailsScreen() {
-  return (
-    <View>
-      <Text>Details Screen anjaygak</Text>
-    </View>
-  );
-}
+  // useEffect(() => {
+  //   const checkToken = async () => {
+  //     const token = await AuthService.getToken();
+  //     setUserToken(token);
+  //     setLoading(false);
+  //   };
+  //   checkToken();
+  // }, []);
 
-const Stack = createNativeStackNavigator();
-
-function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
+  // if (loading) {
+  //   return (
+  //     <View>
+  //       <Text>Loading...</Text>
+  //     </View>
+  //   );
+  // }
+  return <Login />;
+};
 
 export default App;
