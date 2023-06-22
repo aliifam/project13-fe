@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useEffect, useState} from 'react';
 import AuthService from './services/AuthService';
 import Login from './screens/Login';
+import OnBoarding from './screens/OnBoarding';
 
 const App: React.FC = () => {
   // const [loading, setLoading] = useState(true);
@@ -26,7 +27,7 @@ const App: React.FC = () => {
   //     </View>
   //   );
   // }
-  return <Login />;
+  return <OnBoarding />;
 };
 
 export default App;
