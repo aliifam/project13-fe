@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "title": "Cozy Studio Apartment",
+    "price": 80,
+    "image": "room1.jpg"
+  },
+  {
+    "id": "2",
+    "title": "Luxury Beach House",
+    "price": 300,
+    "image": "room2.jpg"
+  },
+  {
+    "id": "3",
+    "title": "Modern City Loft",
+    "price": 150,
+    "image": "room3.jpg"
+  },
+  {
+    "id": "4",
+    "title": "Private Mountain Cabin",
+    "price": 120,
+    "image": "room4.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Spacious Country Villa",
+    "price": 200,
+    "image": "room5.jpg"
+  }
+]
