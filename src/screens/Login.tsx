@@ -6,6 +6,7 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -23,6 +24,7 @@ const Login = () => {
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
+        <Icon name="pencil" size={64} color="#ff5a5f" />
         {/* Add your Airbnb logo here */}
         <Text style={styles.logo}>Project 13</Text>
       </View>
