@@ -1,12 +1,12 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-const HistoryBadge = () => {
+const BottomNavigator = () => {
   return (
     <View>
-      <Text>HistoryBadge</Text>
+      <Text>BottomNavigator</Text>
     </View>
   );
 };
 
-export default HistoryBadge;
+export default BottomNavigator;
