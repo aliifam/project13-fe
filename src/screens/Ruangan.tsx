@@ -1,54 +1,60 @@
 import React from 'react';
-import {View, FlatList, ImageSourcePropType} from 'react-native';
-import RuanganCard from '../components/RuanganCard';
+import {FlatList} from 'react-native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RouteProp} from '@react-navigation/native';
+import {RootStackParamList, Room} from '../constants/types';
+import RoomCard from '../components/RuanganCard';
 
-interface Ruangan {
-  id: string;
-  image: ImageSourcePropType;
-  name: string;
-  description: string;
-  capacity: number;
+interface RoomListProps {
+  navigation: StackNavigationProp<RootStackParamList, 'RoomList'>;
+  route: RouteProp<RootStackParamList, 'RoomList'>;
 }
 
-interface RuanganListPageProps {
-  navigation: any; // Replace 'any' with the appropriate type for your navigation prop
-}
-
-const RuanganListPage: React.FC<RuanganListPageProps> = ({navigation}) => {
-  const Ruangans: Ruangan[] = [
+const RoomList: React.FC<RoomListProps> = ({navigation}) => {
+  const rooms: Room[] = [
     {
       id: '1',
-      image: require('./Ruangan1.jpg'),
+      image:
+        'https://cdn-cms.pgimgs.com/areainsider/2022/12/Alt-Text-1.-Coworking-Space-Jakarta-Selatan-CoHive-.png',
       name: 'Cozy Apartment',
       description: 'A beautiful and cozy apartment in the heart of the city.',
       capacity: 2,
     },
     {
       id: '2',
-      image: require('./Ruangan2.jpg'),
+      image:
+        'https://cdn-cms.pgimgs.com/areainsider/2022/12/Alt-Text-4.-Coworking-Space-Jakarta-Pusat-WeWork-738x457.png',
       name: 'Luxury Villa',
       description:
         'Experience luxury living in this stunning beachfront villa.',
       capacity: 4,
     },
-    // Add more Ruangans here
+
+    {
+      id: '3',
+      image:
+        'https://cdn-cms.pgimgs.com/areainsider/2022/12/Alt-Text-5.-Coworking-Space-Jakarta-Barat-Werkspace.png',
+      name: 'Beautiful Bungalow',
+      description: 'A beautiful bungalow with a private infinity pool.',
+      capacity: 3,
+    },
   ];
 
-  const handleCardPress = (Ruangan: Ruangan) => {
-    navigation.navigate('RuanganDetailBooking', {Ruangan});
+  const handlePressCard = (room: Room) => {
+    navigation.navigate('RoomDetail', {room});
+  };
+
+  const renderRoomCard = ({item}: {item: Room}) => {
+    return <RoomCard room={item} onPress={handlePressCard} />;
   };
 
   return (
-    <View>
-      <FlatList
-        data={Ruangans}
-        keyExtractor={Ruangan => Ruangan.id}
-        renderItem={({item}) => (
-          <RuanganCard Ruangan={item} onPress={handleCardPress} />
-        )}
-      />
-    </View>
+    <FlatList
+      data={rooms}
+      keyExtractor={room => room.id}
+      renderItem={renderRoomCard}
+    />
   );
 };
 
-export default RuanganListPage;
+export default RoomList;

@@ -1,72 +1,57 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-  ImageSourcePropType,
-} from 'react-native';
+import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {Room} from '../constants/types';
 
-interface Ruangan {
-  id: string;
-  image: ImageSourcePropType;
-  name: string;
-  description: string;
-  capacity: number;
+interface RoomCardProps {
+  room: Room;
+  onPress: (room: Room) => void;
 }
 
-interface RuanganCardProps {
-  Ruangan: Ruangan;
-  onPress: (Ruangan: Ruangan) => void;
-}
-
-const RuanganCard: React.FC<RuanganCardProps> = ({Ruangan, onPress}) => {
-  const {image, name, description, capacity} = Ruangan;
+const RoomCard: React.FC<RoomCardProps> = ({room, onPress}) => {
+  const {image, name, description, capacity} = room;
 
   return (
-    <TouchableOpacity style={styles.container} onPress={() => onPress(Ruangan)}>
-      <Image source={image} style={styles.image} />
-      <View style={styles.detailsContainer}>
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.description}>{description}</Text>
-        <Text style={styles.capacity}>Capacity: {capacity}</Text>
+    <TouchableOpacity
+      style={styles.cardContainer}
+      onPress={() => onPress(room)}>
+      <Image source={{uri: image}} style={styles.cardImage} />
+      <View style={styles.cardDetails}>
+        <Text style={styles.cardName}>{name}</Text>
+        <Text style={styles.cardDescription}>{description}</Text>
+        <Text style={styles.cardCapacity}>Capacity: {capacity}</Text>
       </View>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    marginBottom: 20,
-    borderRadius: 8,
+  cardContainer: {
+    marginBottom: 16,
     backgroundColor: '#fff',
-    elevation: 4,
+    borderRadius: 8,
+    elevation: 2,
   },
-  image: {
-    width: 100,
-    height: 100,
+  cardImage: {
+    height: 200,
     borderTopLeftRadius: 8,
-    borderBottomLeftRadius: 8,
+    borderTopRightRadius: 8,
   },
-  detailsContainer: {
-    flex: 1,
-    padding: 10,
+  cardDetails: {
+    padding: 16,
   },
-  name: {
+  cardName: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: 8,
   },
-  description: {
+  cardDescription: {
     fontSize: 16,
-    marginBottom: 5,
+    marginBottom: 8,
   },
-  capacity: {
+  cardCapacity: {
     fontSize: 14,
     color: '#888',
   },
 });
 
-export default RuanganCard;
+export default RoomCard;
