@@ -1,9 +1,9 @@
 export type RootStackParamList = {
-  RoomList: undefined;
-  RoomDetail: {room: Room};
+  Ruangan: undefined;
+  RuanganDetail: {room: Ruangan};
 };
 
-export interface Room {
+export interface Ruangan {
   id: string;
   image: string;
   name: string;

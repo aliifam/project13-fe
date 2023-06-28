@@ -9,7 +9,7 @@ const Profile = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('./profile-picture.jpg')}
+        source={{uri: 'https://avatars.githubusercontent.com/u/63054324'}}
         style={styles.profilePicture}
       />
       <Text style={styles.username}>John Doe</Text>
@@ -19,7 +19,10 @@ const Profile = () => {
         euismod orci. Mauris a feugiat nulla. Phasellus commodo metus ac enim
         consequat, quis tincidunt diam interdum.
       </Text>
-      <Button title="Logout" onPress={handleLogout} />
+      <View style={styles.buttonContainer}>
+        <Button title="Edit Profile" onPress={() => {}} style={styles.button} />
+        <Button title="Logout" onPress={handleLogout} style={styles.button} />
+      </View>
     </View>
   );
 };
@@ -49,6 +52,15 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 16,
     textAlign: 'center',
+  },
+  buttonContainer: {
+    width: '100%',
+    paddingHorizontal: 20,
+    marginTop: 10, // Add margin top to the button container
+  },
+  button: {
+    width: '100%',
+    marginBottom: 10,
   },
 });
 

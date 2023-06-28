@@ -8,18 +8,12 @@ import QrPresence from './screens/QrPresence';
 import {RootStackParamList} from '../src/constants/types';
 import RoomList from './screens/Ruangan';
 import RoomDetail from './screens/RuanganDetail';
+import BottomNavigator from './components/BottomTab';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="RoomList">
-        <Stack.Screen name="RoomList" component={RoomList} />
-        <Stack.Screen name="RoomDetail" component={RoomDetail} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+  return <BottomNavigator />;
 };
 
 export default App;

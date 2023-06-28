@@ -1,13 +1,13 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
-import {Room} from '../constants/types';
+import {Ruangan} from '../constants/types';
 
-interface RoomCardProps {
-  room: Room;
-  onPress: (room: Room) => void;
+interface RuanganCardProps {
+  room: Ruangan;
+  onPress: (room: Ruangan) => void;
 }
 
-const RoomCard: React.FC<RoomCardProps> = ({room, onPress}) => {
+const RuanganCard: React.FC<RuanganCardProps> = ({room, onPress}) => {
   const {image, name, description, capacity} = room;
 
   return (
@@ -54,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RoomCard;
+export default RuanganCard;

@@ -16,13 +16,13 @@ const QrPresence = () => {
       flashMode={RNCamera.Constants.FlashMode.torch}
       topContent={
         <Text style={styles.centerText}>
-          Go to <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text>{' '}
-          on your computer and scan the QR code.
+          Scan <Text style={styles.textBold}>QR code</Text> untuk melakukan
+          presensi ruangan
         </Text>
       }
       bottomContent={
         <TouchableOpacity style={styles.buttonTouchable}>
-          <Text style={styles.buttonText}>OK. Got it!</Text>
+          <Text style={styles.buttonText}>Success Presence</Text>
         </TouchableOpacity>
       }
     />
@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     padding: 32,
     color: '#777',
+    textAlign: 'center',
   },
   textBold: {
     fontWeight: '500',
@@ -42,6 +43,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 21,
+    marginTop: 24,
     color: 'rgb(0,122,255)',
   },
   buttonTouchable: {

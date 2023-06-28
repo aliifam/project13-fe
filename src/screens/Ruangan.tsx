@@ -2,16 +2,19 @@ import React from 'react';
 import {FlatList} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RouteProp} from '@react-navigation/native';
-import {RootStackParamList, Room} from '../constants/types';
-import RoomCard from '../components/RuanganCard';
+import {RootStackParamList, Ruangan} from '../constants/types';
+import RuanganCard from '../components/RuanganCard';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-interface RoomListProps {
-  navigation: StackNavigationProp<RootStackParamList, 'RoomList'>;
-  route: RouteProp<RootStackParamList, 'RoomList'>;
+interface RuanganProps {
+  navigation: StackNavigationProp<RootStackParamList, 'Ruangan'>;
+  route: RouteProp<RootStackParamList, 'Ruangan'>;
 }
 
-const RoomList: React.FC<RoomListProps> = ({navigation}) => {
-  const rooms: Room[] = [
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+const RuanganList: React.FC<RuanganProps> = ({navigation}) => {
+  const rooms: Ruangan[] = [
     {
       id: '1',
       image:
@@ -40,21 +43,21 @@ const RoomList: React.FC<RoomListProps> = ({navigation}) => {
     },
   ];
 
-  const handlePressCard = (room: Room) => {
-    navigation.navigate('RoomDetail', {room});
+  const handlePressCard = (room: Ruangan) => {
+    navigation.navigate('RuanganDetail', {room});
   };
 
-  const renderRoomCard = ({item}: {item: Room}) => {
-    return <RoomCard room={item} onPress={handlePressCard} />;
+  const renderRuanganCard = ({item}: {item: Ruangan}) => {
+    return <RuanganCard room={item} onPress={handlePressCard} />;
   };
 
   return (
     <FlatList
       data={rooms}
       keyExtractor={room => room.id}
-      renderItem={renderRoomCard}
+      renderItem={renderRuanganCard}
     />
   );
 };
 
-export default RoomList;
+export default RuanganList;
